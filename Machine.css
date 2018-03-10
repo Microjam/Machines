@@ -1,0 +1,155 @@
+/* CSS Style Sheet for Machine OEE Project
+Created:        25-Feb-2018
+Authors:        Redge Shepherd
+
+Resources:      
+
+Color-Picker    https://www.w3schools.com/colors/colors_picker.asp?colorhex=FFEBCD
+
+Styling Link States:  a:link (normal not visited) a:visited a:hover a:active
+ */
+
+canvas {
+    border: 1px solid black;
+    background-color: darkgrey;
+    margin: 0;
+    color: black;
+}
+
+#MasterControl {
+    max-width: 710px;   /* max-width overrides width. */
+    background-color:antiquewhite;
+    margin-left: 0px;
+    /* margin:auto Centers on the screen */
+    padding: 5px 5px 5px 5px;
+    /* margin-left: 0px;
+    color: black;
+    border-width: thin;
+    border-color: acqua;*/
+}
+
+#MasterButtons {
+    max-width: 710px;
+    background-color:antiquewhite;
+    margin-left: 0px;
+    padding: 5px 5px 5px 5px;
+}
+
+.btnMaster {
+    width:  120px;
+}
+
+#setupForm {
+    width: 390px;
+    background-color:antiquewhite;
+    margin-left: 0px;
+    padding: 5px 5px 5px 5px;
+    float: left;
+    clear: right;
+}
+
+#setupMachines {
+    width: 370px;
+    background-color: aliceblue;
+    border: 1px solid black;
+    margin: 5px 5px 5px 5px;
+    padding: 10px 5px 10px 5px;
+    line-height: 10px;
+    float: left;
+    clear: right;
+}
+
+#configureOptions {
+    max-width: 400px;
+    background-color: antiquewhite;
+    border: 1px solid black;
+    margin: 5px 5px 5px 5px;
+    padding: 5px 5px 5px 5px;
+    float: left;
+    clear: both;
+}
+
+/* Format labels on the screen */
+.lblsetup{
+    /* default font size is 16px so 1em = 16px */
+    font-size: 1em;
+    /* font-style:  normal, oblique, or italic */
+    font-style: normal;
+    /* font-family:  more than one font in a comma separated list */
+    font-family: "monospace", "Courier New", "Lucida Console";
+    background-color: aliceblue;
+    line-height: 23px;
+    float: left;
+    clear: left;
+}
+
+/* Format INPUT fields on the form */
+.setup {
+    margin-left: 10px;
+    float: left;
+    clear: right;
+    line-height:  17px;
+    background-color: lightcyan;
+/*    position:absolute;
+    right:20px; */
+}
+
+.btnSubmit {
+    float: left;
+    clear: left;
+    line-height:  20px;
+}
+
+#DowntimeEvents {
+    /* / background-position: bottom;
+    // background-color: antiquewhite; */
+    max-width:  400px;
+    background-color: aliceblue;
+    border: 2px solid black;
+    margin: 5px 5px 5px 5px;
+    padding: 5px 5px 5px 5px;
+    color: black;
+    float: left;
+    /*
+    text-align: center;
+    outline-style: inset;
+    outline-style: inset;
+    outline-color: green;
+    outline-width: medium;
+    outline: #4CAF50 inset 3px;
+     */
+}
+
+#CounterTypes {
+    /* / background-position: bottom;
+    // background-color: antiquewhite; */
+    max-width:  400px;
+    background-color: antiquewhite;
+    border: 2px solid black;
+    margin: 5px 5px 5px 5px;
+    padding: 5px 5px 5px 5px;
+    color: black;
+    outline: 1px solid red;
+    outline-offset: 5px;
+    float: left;
+    /*
+    text-align: center;
+    outline-style: inset;
+    outline-style: inset;
+    outline-color: green;
+    outline-width: medium;
+    outline: #4CAF50 inset 3px;
+     */
+}
+
+#sessionDateTime {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 400px;
+    border: 2px solid red;
+    color: black;
+    text-align: center;
+    font-size: small;
+    /* text-blink */
+}

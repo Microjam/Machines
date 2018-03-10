@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>"Machines"</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" type="text/css" href="Machine.css"
+
+          <!-- jquery CDN's content delivery networks -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <!--
+    Microsoft
+    http://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.js
+    http://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js
+    http://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.map
+
+    CDNJS Cloudflare
+    https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/core.js
+    https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js
+    https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js
+    https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.map
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/core.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+    https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.map
+
+    -->
+
+</head>
+
+<body>
+<div id = "MasterControl">
+    <h2 title="Controls Activity for ALL Machines">Master Control Panel</h2>
+</div>
+
+<div id="MasterButtons">
+    <button class = "btnMaster" id = "btnCycleEnd">Cycle End <i class="fa fa-pause"></i></button>
+    <button class = "btnMaster" id = "btnStop">Stop Job <i class="fa fa-stop"></i></button>
+    <button class = "btnMaster" id = "btnResume">Resume <i class="fa fa-play"></i></button>
+    <button class = "btnMaster" id = "btnReset">Reset <i class="fa fa-eject"></i></button>
+    <button class = "btnMaster" id = "btnOEE">OEE</button>
+    <button class = "btnMaster" id = "btnCounters">Counters</button>
+    <button class = "btnMaster" id = "btnMachinesToggle">Machines:  OFF</button>
+    <button class = "btnMaster" id = "btnMachinesStart">Start</button>
+    <button class = "btnMaster" id = "btnMachinesStop">Stop</button>
+</div>
+
+    <canvas id="machineSpace" width="150" height="300" margin="0">Machine-Process</canvas>
+    <!-- script src="Machine.js"></script -->
+
+
+    <!-- div id = "MasterControl">
+    <h2 title="Controls Activity for ALL Machines">Master Control Panel</h2>
+    </div -->
+
+    <!-- div id="MasterButtons">
+        <button id = "btnCycleEnd">Cycle End <i class="fa fa-pause"></i></button>
+        <button id = "btnStop">Stop Job <i class="fa fa-stop"></i></button>
+        <button id = "btnResume">Resume <i class="fa fa-play"></i></button>
+        <button id = "btnReset">Reset <i class="fa fa-eject"></i></button>
+        <button id = "btnOEE">OEE</button>
+        <button id = "btnCounters">Counters</button>
+        <button id = "btnMachinesToggle">"Machines:  OFF"</button>
+        <!-- button id = "btnMachinesStop">Stop Machines</button -->
+    </div -->
+
+    <br/>
+    <!-- form id="setupMachines" name="setupMachines" onSubmit="return setupMachines()" autocomplete="on" -->
+    <div id="setupForm">
+        <form id="setupMachines" name="setupMachines" action="javascript:setupMachines()" autocomplete="on">
+
+            <label class="lblsetup" for="customer">Customer:..........</label>
+            <input class="setup" type="text" id="customer" name="customer" maxlength="20" placeholder="Versalytics" value="Versalytics" autofocus /><br/>
+
+            <label class="lblsetup" for="machineCount">Machines (1-10):...</label>
+            <input class="setup" type="number" id="machineCount" name="machineCount" maxlength="2" min="1" max="10" placeholder="3" value="3" /><br/>
+
+            <label class="lblsetup" for="machineStroke">Stroke:............</label>
+            <input class="setup" type="number" id="machineStroke" name="machineStroke" maxlength="2" min="25" max="45" placeholder="30" value="30" /><br/>
+
+            <label class="lblsetup" for="batchMin">Batch (Min 10):....</label>
+            <input class="setup" type="number" id="batchMin" name="batchMin" maxlength="6" min="10" max="999999" placeholder="50" value="50"/><br/>
+
+            <label class="lblsetup" for="batchMax">Batch (Max 999999):</label>
+            <input class="setup" type="number" id="batchMax" name="batchMax" maxlength="6" max="999999" placeholder="100" value="100" /><br/>
+
+            <label class="lblsetup" for="stdDevNCQ">StdDev NCQ +/- 1.0-6.0:</label>
+            <input class="setup" type="number" id="stdDevNCQ" name="stdDevNCQ" maxlength="5" max="3" placeholder="2.25" value="2.25" /><br/>
+            <br/>
+            <button class="btnSubmit" type="submit" id="btnSetup">Submit</button>
+        </form>
+    </div>
+
+    <div id="configureOptions">
+        <p>Other Configuration Options to Consider:</p>
+        <ul>
+            <li>Standard Pack Quantities</li>
+            <li>Setup Time</li>
+            <li>Raw Material</li>
+            <li>Variable Travel Control</li>
+        </ul>
+    </div>
+
+    <!-- form action="/action_page.php">
+        Select images: <input type="file" name="img" multiple>
+        <input type="submit">
+    </form -->
+
+    <div id = "DowntimeEvents">
+        <p>Downtime events include:</p>
+        <ul>
+            <li>New Job - Set Up</li>
+            <li>New Raw - Change</li>
+            <li>New Bin - Change</li>
+            <li>Waiting for Operator</li>
+            <li>Machine Fault</li>
+            <li>Tooling Fault</li>
+        </ul>
+    </div>
+
+    <div id = "CounterTypes">
+    <p>Counters:</p>
+    <ul>
+        <li>Run Quantity:  </li>
+        <li>Bin Quantity:  </li>
+        <li>Inspect Parts:  </li>
+        <li>Tool Change:  </li>
+        <li>Maintenance:  </li>
+    </ul>
+    </div>
+
+    <div id="sessionDateTime">
+    Version 00.00.11 Released:  18-Feb-2018
+    </div>
+
+    <script src="Microjam.js"></script>
+    <script src="Machine.js"></script>
+</body>
+
+</html>
